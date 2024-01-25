@@ -68,10 +68,31 @@ double gradeBook[NUM_COURSES][ROSTER_SIZE];
 int maxGrade (double arr1[], int num);
  
 int indexOfMaxGrade (double arr2[][NUM_COURSES], int row, int col);
-// TODO: 3.1 - Implement the specified function below
 
+int maxGrade (double arr1[], int num){
+    int max = 0;
+    for(int i = 0; i<num; i++){
+      if(arr1[max] < arr1[i]){
+        max = arr1[i];
+      }
+    }
+    return arr1[max];
+}
 
 // TODO: 3.2 Implement the specified function below
+int indexOfMaxGrade (double arr2[][NUM_COURSES], int row, int col){
+    int max_row = 0;
+    int max_col = 0;
+    for(int i = 0; i<row; i++){
+        for (int j = 0; j<col; i++){
+            if (arr2[max_row][max_col] < arr2[i][j]){
+               max_row = i;
+               max_col = j;
+            }
+        }
+    }
+    return max_row;
+}
 
 
 #endif // MSU_CSC232_H_
