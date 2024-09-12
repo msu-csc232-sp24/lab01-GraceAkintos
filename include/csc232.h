@@ -17,8 +17,8 @@
 #define FALSE 0
 #define TRUE 1
 
-#define FINISHED_PART_1 FALSE
-#define FINISHED_PART_2 FALSE
+#define FINISHED_PART_1 TRUE
+#define FINISHED_PART_2 TRUE
 #define FINISHED_PART_3 FALSE
 
 #include <algorithm>
@@ -57,31 +57,42 @@ using std::right;
 using std::setprecision;
 using std::setw;
 
-// TODO: 1.1 Declare a named constant ROSTER_SIZE initialized to the integer value 10.
+const int ROSTER_SIZE {5};
 
+const int NUM_COURSES {3};
 
-// TODO: 1.3 Declare a named constant NUM_COURSES initialized to the integer value of 3.
+double grades[ROSTER_SIZE];
 
+double gradeBook[NUM_COURSES][ROSTER_SIZE];
 
-// TODO: 1.2 Declare an array named as specified whose size is ROSTER_SIZE that stores floating-point numbers (e.g., double)
+int maxGrade (double arr1[], int num);
+ 
+int indexOfMaxGrade (double arr2[][NUM_COURSES], int row, int col);
 
-
-// TODO: 1.4 Declare a two-dimensional array as specified that has NUM_COURSES rows and ROSTER_SIZE columns that
-//  stores floating point numbers (e.g., double)
-
-
-// TODO: 2.1 Declare a function named as specified that specifies two parameters. The first parameter is an integer that
-//  specifies the number of elements in the array to process and the second parameter is an array of doubles.
-
-
-// TODO: 2.2 Declare function named as specified that specifies three parameters. The first parameter is an integer
-//  that corresponds to the number of rows in the given table, the second parameter is an integer that corresponds to
-//  the number of columns in the table, and the third parameter is for a two-dimensional array of double values.
-
-// TODO: 3.1 - Implement the specified function below
-
+int maxGrade (double arr1[], int num){
+    int max = 0;
+    for(int i = 0; i<num; i++){
+      if(arr1[max] < arr1[i]){
+        max = arr1[i];
+      }
+    }
+    return arr1[max];
+}
 
 // TODO: 3.2 Implement the specified function below
+int indexOfMaxGrade (double arr2[][NUM_COURSES], int row, int col){
+    int max_row = 0;
+    int max_col = 0;
+    for(int i = 0; i<row; i++){
+        for (int j = 0; j<col; i++){
+            if (arr2[max_row][max_col] < arr2[i][j]){
+               max_row = i;
+               max_col = j;
+            }
+        }
+    }
+    return max_row;
+}
 
 
 #endif // MSU_CSC232_H_
